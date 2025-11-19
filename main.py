@@ -14,6 +14,11 @@ from time import sleep
 #printar no arquivo csv
 #ir para a proxima cidade - loop
 
+#cidades_buscar = [
+    #'//*[@id="cidade"]/option[2]' , #americana
+    #'//*[@id="cidade"]/option[8]', #nova odessa
+   # '//*[@id="cidade"]/option[10]', #sta brb doeste 
+  #  ]
 
 
 #entrar no site
@@ -21,20 +26,11 @@ driver = webdriver.Chrome()
 driver.get('https://ssi.aexecutiva.com.br/vagas')
 sleep(6)
 
-cidades_busca = [
-    '//*[@id="cidade"]/option[2]' , #americana
-    '//*[@id="cidade"]/option[8]', #nova odessa
-    '//*[@id="cidade"]/option[10]', #sta brb doeste
-]
 
-for nome_da_cidade in cidades_busca:
-    print(f'Cidades sendo buscada, calma um pouco :D')
-    print(f"Buscando vagas para a cidade {nome_da_cidade}")
-
-
-    try:
-        selecionar_cidade =  driver.find_element(By.XPATH,'//*[@id="cidade"]')
-        selecionar_cidade.click()
-        sleep(5)
-    except:
-        print('Não foi possivel localizar a cidade')
+#inicio testes buscar localidades    
+selecionar_cidade =  driver.find_element(By.XPATH,'//*[@id="cidade"]')
+selecionar_cidade.click()
+sleep(5)
+selecionar_localidade = driver.find_element(By.XPATH,'//*[@id="cidade"]/option[2]')
+ 
+print('Não foi possivel localizar a cidade')
