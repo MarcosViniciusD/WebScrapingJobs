@@ -28,3 +28,8 @@ for linha in linhas:
 
 driver.quit()
 
+df = pd.DataFrame(dados)
+df.to_excel('vagas.xlsx', index=False)
+
+print("Planilha gerada com sucesso!")
+
